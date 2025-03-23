@@ -22,7 +22,7 @@ const App: React.FC = () => {
           </section>
 
           {/* "Prevention Saves Lives" Section */}
-          <section className="section-box prevention-section">
+          <section className="section-box">
             <h2 className="section-title">La prevención salva vidas</h2>
             <div className="prevention-content">
               {/* Left Column */}
@@ -40,12 +40,28 @@ const App: React.FC = () => {
               {/* Right Column (Video) */}
               <div className="prevention-video">
                 <iframe
-                  width="500"
-                  height="280"
                   src="https://www.youtube.com/embed/3UUdLYAMQMw"
                   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                 ></iframe>
               </div>
+            </div>
+          </section>
+          <section className="CancerContainer">
+            <div className="section-box">
+              <h2 className="section-title">Cancer de Mama</h2>
+              <p className="section-text">
+                Somos una organización de ayuda social, que apoya a madres de
+                escasos recursos a prevenir los tipos de cáncer más prevalentes
+                y las que ya sufren la enfermedad salgan lo más pronto de ella.
+              </p>
+            </div>
+            <div className="section-box">
+              <h2 className="section-title">Cancer de Cuello uterino</h2>
+              <p className="section-text">
+                Somos una organización de ayuda social, que apoya a madres de
+                escasos recursos a prevenir los tipos de cáncer más prevalentes
+                y las que ya sufren la enfermedad salgan lo más pronto de ella.
+              </p>
             </div>
           </section>
         </div>
