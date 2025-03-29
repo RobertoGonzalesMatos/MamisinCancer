@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Carousel } from "./components/Carousel";
 import { Navbar } from "./components/Navbar";
 import "./App.css";
+import AudioPlayer from "./components/AudioPlayer";
 
 const App: React.FC = () => {
   const [language, setLanguage] = useState<"es" | "en">("es");
@@ -121,6 +122,42 @@ const App: React.FC = () => {
                 ></iframe>
               </div>
             </div>
+          </section>
+          <section className="section-box">
+            <h2 className="section-title">
+              {t(
+                "Expandiendo a todas las regiones del Peru",
+                "Expanding our reach throughout Peru"
+              )}
+            </h2>
+            <p className="section-text">
+              {t(
+                "En el Perú mas de tres millones de habitantes son Quechua hablantes nativos, siendo uno de los idiomas oficiales del país. Brindaremos información relevante sobre prevención del cáncer en el idioma Quechua. Aqui hay un video donde visitamos comunidades andinas para promover la prevencion y un audio con la traducción en Quechua.",
+                "In Peru more than three million inhabitants are native Quechua speakers, being one of the official languages ​​of the country. We will provide relevant information on cancer prevention in the Quechua language. Here is a video where we raise awareness in low income communities in the andes and its corresponding translation in Quechua"
+              )}
+            </p>
+            <div
+              style={{
+                width: "100%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                flexDirection: "row",
+              }}
+            >
+              <div className="prevention-video">
+                <iframe
+                  src="https://www.youtube.com/embed/UoZE4xEyXRY"
+                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                  style={{ width: "100%", height: "100%" }}
+                ></iframe>
+              </div>
+            </div>
+            <AudioPlayer
+              src="/quechua.mpeg"
+              playIcon="/play.png"
+              pauseIcon="/pause.png"
+            />
           </section>
         </div>
       </div>
