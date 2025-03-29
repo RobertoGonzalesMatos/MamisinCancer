@@ -8,20 +8,18 @@
   align-items: center;
 }
 
-/* Logo Container */
+/* Logo */
 .logo-container {
   display: flex;
   align-items: center;
 }
 
-/* Logo Image */
 .mamisincancer {
   width: 80px;
   height: auto;
   margin-right: 10px;
 }
 
-/* Navbar Title */
 .navbar-title {
   color: #e9288f;
   font-size: 3rem;
@@ -30,32 +28,46 @@
   font-weight: bold;
 }
 
-/* Navigation Links */
+/* Navigation Links Wrapper */
 .navbar-links {
   display: flex;
   align-items: center;
   gap: 2rem;
 }
 
-/* Navigation Links */
-.navbar-links a {
+/* Unified nav link style */
+.nav-link {
   color: #4b5563;
   text-decoration: none;
   font-size: 1rem;
   font-weight: 500;
+  padding: 0.5rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
 }
 
-.navbar-links a:hover {
+.nav-link:hover {
   color: #e9288f;
 }
 
 /* Language Toggle */
-.navbar-toggle {
+.navbar-toggle,
+.english-hidden-toggle {
   display: flex;
   align-items: center;
   font-size: 1rem;
   cursor: pointer;
   gap: 5px;
+}
+
+.english-hidden-toggle span {
+  color: #4b5563;
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 1rem 0;
 }
 
 /* Toggle Switch */
@@ -80,6 +92,10 @@
   background-color: #ccc;
   border-radius: 20px;
   transition: 0.4s;
+}
+
+.menu-button:hover {
+  color: #ff9dd0;
 }
 
 .toggle-checkbox:checked + .toggle-slider {
@@ -118,7 +134,7 @@
   background-color: #e9288f;
 }
 
-/* Mobile Menu Button */
+/* Mobile Menu */
 .menu-button {
   display: none;
   background: none;
@@ -126,9 +142,9 @@
   color: #e9288f;
   font-size: 30px;
   cursor: pointer;
+  height: 30px;
 }
 
-/* Sidebar */
 .sidebar {
   position: fixed;
   top: 0;
@@ -140,31 +156,24 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: start;
-  padding-top: 2rem;
+  padding: 2rem 1rem;
   transition: right 0.3s ease-in-out;
   z-index: 100;
 }
 
-/* Open Sidebar */
 .sidebar.open {
   right: 0;
 }
 
-/* Sidebar Links */
-.sidebar a {
-  color: #4b5563;
-  text-decoration: none;
-  font-size: 1.2rem;
-  font-weight: 500;
-  margin: 1rem 0;
+.sidebar .nav-link {
+  width: 100%;
 }
 
-.sidebar a:hover {
+.sidebar .nav-link:hover {
+  background-color: #f9f9f9;
   color: #e9288f;
 }
 
-/* Close Button */
 .close-button {
   position: absolute;
   top: 15px;
@@ -176,7 +185,6 @@
   cursor: pointer;
 }
 
-/* Overlay */
 .overlay {
   position: fixed;
   top: 0;
@@ -187,8 +195,68 @@
   z-index: 50;
 }
 
-/* Responsive Styles */
-@media (max-width: 1024px) {
+/* Dropdown */
+.dropdown {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.dropdown-button {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #4b5563;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0.5rem 0;
+}
+
+.dropdown-button:hover {
+  color: #e9288f;
+}
+
+.dropdown-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.navbar-donate:hover {
+  background-color: #ff9dd0;
+}
+/* Desktop-specific dropdown floating */
+@media (min-width: 1151px) {
+  .dropdown {
+    position: relative;
+  }
+
+  .dropdown-content:not(.sidebar-dropdown-content) {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    min-width: 200px;
+    z-index: 1000;
+    padding: 0.5rem 0;
+  }
+
+  .dropdown-content:not(.sidebar-dropdown-content) a {
+    padding: 0.5rem 1rem;
+  }
+
+  .dropdown-content:not(.sidebar-dropdown-content) a:hover {
+    background-color: #f9f9f9;
+    color: #e9288f;
+  }
+}
+
+/* Responsive Fixes */
+@media (max-width: 1150px) {
   .navbar {
     padding: 1rem 2rem;
   }
@@ -200,7 +268,24 @@
   .menu-button {
     display: block;
   }
+}
+
+@media (max-width: 1024px) {
   .navbar-title {
     font-size: 2rem;
+  }
+  .mamisincancer {
+    width: 60px;
+    height: auto;
+    margin-right: 10px;
+  }
+}
+
+@media (max-width: 700px) {
+  .navbar {
+    padding: 0.5rem 1rem;
+  }
+  .navbar-title {
+    font-size: 1.8rem;
   }
 }

@@ -1,13 +1,45 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "../styles/Navbar.css";
-import { FaBars, FaTimes } from "react-icons/fa"; // ✅ Import icons for menu
+import { FaBars, FaTimes, FaChevronDown } from "react-icons/fa";
 
-export const Navbar: React.FC = () => {
+interface NavbarProps {
+  language: "es" | "en";
+  toggleLanguage: () => void;
+}
+
+export const Navbar: React.FC<NavbarProps> = ({ language, toggleLanguage }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
+    setDropdownOpen(false);
   };
+
+  const toggleDropdown = () => {
+    setDropdownOpen(!dropdownOpen);
+  };
+
+  const t = (es: string, en: string) => (language === "es" ? es : en);
+
+  const renderDropdownLinks = (isSidebar = false) => (
+    <div
+      className={`dropdown-content${
+        isSidebar ? " sidebar-dropdown-content" : ""
+      }`}
+    >
+      <a href="#" className="nav-link">
+        {t("Voluntariado", "Volunteering")}
+      </a>
+      <a href="#" className="nav-link">
+        {t("Eventos", "Events")}
+      </a>
+      <a href="#" className="nav-link">
+        {t("Testimonios", "Testimonials")}
+      </a>
+    </div>
+  );
 
   return (
     <>
@@ -21,40 +53,71 @@ export const Navbar: React.FC = () => {
           <h1 className="navbar-title">MamiSinCancer</h1>
         </div>
 
-        {/* Desktop Navbar */}
         <div className="navbar-links">
           <label className="navbar-toggle">
-            <span>English</span>
+            <span>{language === "es" ? "Inglés" : "English"}</span>
             <div className="toggle-switch">
-              <input type="checkbox" className="toggle-checkbox" />
+              <input
+                type="checkbox"
+                className="toggle-checkbox"
+                checked={language === "en"}
+                onChange={toggleLanguage}
+              />
               <div className="toggle-slider"></div>
             </div>
           </label>
 
-          <a href="#">Inicio</a>
-          <a href="#">Historia</a>
-          <a href="#">Contributions</a>
-          <button className="navbar-donate">Donate</button>
+          <a href="#" className="nav-link">
+            {t("Inicio", "Home")}
+          </a>
+          <a href="#" className="nav-link">
+            {t("Historia", "Our Story")}
+          </a>
+          <div className="dropdown" ref={dropdownRef}>
+            <a href="#" className="nav-link" onClick={toggleDropdown}>
+              {t("Contribuciones", "Contributions")} <FaChevronDown />
+            </a>
+            {!sidebarOpen && dropdownOpen && renderDropdownLinks()}
+          </div>
+          <button className="navbar-donate">{t("Donar", "Donate")}</button>
         </div>
 
-        {/* Mobile Menu Button */}
         <button className="menu-button" onClick={toggleSidebar}>
           <FaBars />
         </button>
       </nav>
 
-      {/* Sidebar Menu */}
       <div className={`sidebar ${sidebarOpen ? "open" : ""}`}>
         <button className="close-button" onClick={toggleSidebar}>
           <FaTimes />
         </button>
-        <a href="#">Inicio</a>
-        <a href="#">Historia</a>
-        <a href="#">Contributions</a>
-        <button className="navbar-donate">Donate</button>
+        <a href="#" className="nav-link">
+          {t("Inicio", "Home")}
+        </a>
+        <a href="#" className="nav-link">
+          {t("Historia", "Our Story")}
+        </a>
+        <div className="dropdown">
+          <a href="#" className="nav-link" onClick={toggleDropdown}>
+            {t("Contribuciones", "Contributions")} <FaChevronDown />
+          </a>
+          {sidebarOpen && dropdownOpen && renderDropdownLinks(true)}
+        </div>
+        <label className="english-hidden-toggle">
+          <span>{language === "es" ? "Inglés" : "English"}</span>
+          <div className="toggle-switch">
+            <input
+              type="checkbox"
+              className="toggle-checkbox"
+              checked={language === "en"}
+              onChange={toggleLanguage}
+            />
+            <div className="toggle-slider"></div>
+          </div>
+        </label>
+        <button className="navbar-donate">{t("Donar", "Donate")}</button>
       </div>
 
-      {/* Overlay when sidebar is open */}
       {sidebarOpen && <div className="overlay" onClick={toggleSidebar}></div>}
     </>
   );
