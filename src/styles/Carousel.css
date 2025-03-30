@@ -19,36 +19,44 @@
   justify-content: center;
   align-items: center;
   position: relative;
+  perspective: 2000px; /* 🎯 Da profundidad */
 }
 
-/* Each Slide */
 .carousel-slide {
   position: absolute;
-  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
-  width: 40vw; /* ✅ Dynamic width (40% of viewport) */
-  max-width: 600px; /* ✅ Ensures it doesn’t get too big */
-  height: 30vw; /* ✅ Dynamic height */
-  max-height: 400px; /* ✅ Keeps proportions */
+  transition: transform 0.6s ease, opacity 0.6s ease;
+  width: 40vw;
+  max-width: 600px;
+  height: 30vw;
+  max-height: 400px;
+  opacity: 0;
+  transform: scale(0.8);
+  pointer-events: none;
 }
 
-/* Active (Center) Slide */
 .carousel-slide.active {
-  transform: scale(1.1);
+  transform: translateX(0) scale(1.1);
+  opacity: 1;
+  z-index: 3;
+  pointer-events: auto;
+}
+
+.carousel-slide.left {
+  transform: translateX(-35%) scale(0.9) rotateY(10deg);
+  opacity: 0.7;
   z-index: 2;
 }
 
-/* Left Slide */
-.carousel-slide.left {
-  transform: translateX(-20vw) scale(0.85); /* ✅ Dynamic translate */
-  z-index: 1;
-  opacity: 0.8;
+.carousel-slide.right {
+  transform: translateX(35%) scale(0.9) rotateY(-10deg);
+  opacity: 0.7;
+  z-index: 2;
 }
 
-/* Right Slide */
-.carousel-slide.right {
-  transform: translateX(20vw) scale(0.85); /* ✅ Dynamic translate */
+.carousel-slide.hidden {
+  transform: translateX(0) scale(0.8);
+  opacity: 0;
   z-index: 1;
-  opacity: 0.8;
 }
 
 /* Image Styling */

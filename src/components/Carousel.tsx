@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import "../styles/Carousel.css"; // Import the external CSS file
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa6"; // ✅ Correct import
+import React, { useEffect, useState } from "react";
+import "../styles/Carousel.css";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
 
 const images = [
   "/mamisincancer1.png",
@@ -23,41 +23,42 @@ export const Carousel: React.FC = () => {
     );
   };
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const getSlideClass = (index: number) => {
+    if (index === currentIndex) return "active";
+    if (index === (currentIndex + 1) % images.length) return "right";
+    if (index === (currentIndex - 1 + images.length) % images.length)
+      return "left";
+    return "hidden"; // important: we still render it for animation continuity
+  };
+
   return (
     <div className="carousel-container">
-      {/* Left Arrow */}
-      <button className="carousel-arrow left" onClick={prevSlide}>
+      <div className="carousel-arrow left" onClick={prevSlide}>
         <FaChevronLeft />
-      </button>
-
-      {/* Image Slides */}
-      <div className="carousel-wrapper">
-        {images.map((src, index) => {
-          const offset = (index - currentIndex + images.length) % images.length;
-
-          return (
-            (offset === 0 || offset === 1 || offset === images.length - 1) && ( // ✅ Only show the center + two side slides
-              <div
-                key={index}
-                className={`carousel-slide ${
-                  offset === 0 ? "active" : offset === 1 ? "right" : "left"
-                }`}
-              >
-                <img
-                  src={src}
-                  alt={`Slide ${index + 1}`}
-                  className="carousel-image"
-                />
-              </div>
-            )
-          );
-        })}
       </div>
 
-      {/* Right Arrow */}
-      <button className="carousel-arrow right" onClick={nextSlide}>
+      <div className="carousel-wrapper">
+        {images.map((src, index) => (
+          <div key={index} className={`carousel-slide ${getSlideClass(index)}`}>
+            <img
+              src={src}
+              alt={`Slide ${index + 1}`}
+              className="carousel-image"
+            />
+          </div>
+        ))}
+      </div>
+
+      <div className="carousel-arrow right" onClick={nextSlide}>
         <FaChevronRight />
-      </button>
+      </div>
     </div>
   );
 };

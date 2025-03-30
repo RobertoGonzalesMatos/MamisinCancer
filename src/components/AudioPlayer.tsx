@@ -1,17 +1,12 @@
 import React, { useRef, useState, useEffect } from "react";
+import { FaRegCirclePlay, FaRegCirclePause } from "react-icons/fa6";
 import "../styles/AudioPlayer.css";
 
 interface AudioPlayerProps {
   src: string;
-  playIcon: string;
-  pauseIcon: string;
 }
 
-const AudioPlayer: React.FC<AudioPlayerProps> = ({
-  src,
-  playIcon,
-  pauseIcon,
-}) => {
+const AudioPlayer: React.FC<AudioPlayerProps> = ({ src }) => {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [duration, setDuration] = useState(0);
@@ -30,55 +25,68 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
   };
 
   const handleTimeUpdate = () => {
-    const audio = audioRef.current;
-    if (audio) {
-      setCurrentTime(audio.currentTime);
+    if (audioRef.current) {
+      setCurrentTime(audioRef.current.currentTime);
     }
   };
 
   const handleLoadedMetadata = () => {
-    const audio = audioRef.current;
-    if (audio) {
-      setDuration(audio.duration);
+    if (audioRef.current) {
+      setDuration(audioRef.current.duration);
     }
   };
 
   const handleEnded = () => {
     setIsPlaying(false);
+    setCurrentTime(0);
   };
 
   const handleSeek = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const audio = audioRef.current;
     const newTime = parseFloat(e.target.value);
-    if (audio) {
-      audio.currentTime = newTime;
-      setCurrentTime(newTime);
+    if (audioRef.current) {
+      audioRef.current.currentTime = newTime;
     }
+    setCurrentTime(newTime);
   };
 
   const formatTime = (time: number) => {
+    if (isNaN(time)) return "0:00";
     const minutes = Math.floor(time / 60);
     const seconds = Math.floor(time % 60);
     return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
   };
 
+  useEffect(() => {
+    const audio = audioRef.current;
+    return () => {
+      if (audio) {
+        audio.pause();
+      }
+    };
+  }, []);
+
   return (
     <div className="audio-player">
-      <button className="audio-button" onClick={togglePlay}>
-        <img
-          src={isPlaying ? pauseIcon : playIcon}
-          alt={isPlaying ? "Pause" : "Play"}
-          className="audio-icon"
-        />
+      <button
+        className="audio-button"
+        onClick={togglePlay}
+        aria-label={isPlaying ? "Pause audio" : "Play audio"}
+      >
+        {isPlaying ? (
+          <FaRegCirclePause className="audio-icon" />
+        ) : (
+          <FaRegCirclePlay className="audio-icon" />
+        )}
       </button>
       <div className="audio-progress-container">
         <input
           type="range"
           min={0}
-          max={duration}
+          max={duration || 0}
           value={currentTime}
           onChange={handleSeek}
           className="audio-progress"
+          aria-label="Audio Quechua"
         />
         <div className="audio-time">
           {formatTime(currentTime)} / {formatTime(duration)}
@@ -87,9 +95,9 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
       <audio
         ref={audioRef}
         src={src}
-        onEnded={handleEnded}
         onTimeUpdate={handleTimeUpdate}
         onLoadedMetadata={handleLoadedMetadata}
+        onEnded={handleEnded}
       />
     </div>
   );

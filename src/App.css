@@ -137,6 +137,16 @@ body {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   width: 30%;
 }
+.footer {
+  background-color: #ffcde7;
+  color: #444;
+  text-align: center;
+  padding: 1.5rem 1rem;
+  font-size: 0.95rem;
+  margin-top: 3rem;
+  border-top: 1px solid #e0e0e0;
+}
+
 /* Stack columns on medium/small screens */
 @media (max-width: 1040px) {
   .prevention-content {

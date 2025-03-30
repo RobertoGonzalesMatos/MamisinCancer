@@ -82,15 +82,15 @@ export const Navbar: React.FC<NavbarProps> = ({ language, toggleLanguage }) => {
           <button className="navbar-donate">{t("Donar", "Donate")}</button>
         </div>
 
-        <button className="menu-button" onClick={toggleSidebar}>
+        <div className="menu-button" onClick={toggleSidebar}>
           <FaBars />
-        </button>
+        </div>
       </nav>
 
       <div className={`sidebar ${sidebarOpen ? "open" : ""}`}>
-        <button className="close-button" onClick={toggleSidebar}>
+        <div className="close-button" onClick={toggleSidebar}>
           <FaTimes />
-        </button>
+        </div>
         <a href="#" className="nav-link">
           {t("Inicio", "Home")}
         </a>

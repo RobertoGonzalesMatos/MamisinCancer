@@ -153,14 +153,19 @@ const App: React.FC = () => {
                 ></iframe>
               </div>
             </div>
-            <AudioPlayer
-              src="/quechua.mpeg"
-              playIcon="/play.png"
-              pauseIcon="/pause.png"
-            />
+            <AudioPlayer src="/quechua.mpeg" />
           </section>
         </div>
       </div>
+      <footer className="footer">
+        <p>
+          © {new Date().getFullYear()} Mamisincancer.{" "}
+          {t(
+            "Contactanos atravez de +51 999267461.",
+            "Contact us through +51 999267461"
+          )}
+        </p>
+      </footer>
     </div>
   );
 };
