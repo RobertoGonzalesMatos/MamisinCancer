@@ -1,16 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import { Carousel } from "./components/Carousel";
 import { Navbar } from "./components/Navbar";
 import "./App.css";
 import AudioPlayer from "./components/AudioPlayer";
 
-const App: React.FC = () => {
-  const [language, setLanguage] = useState<"es" | "en">("es");
+interface AppProps {
+  language: "es" | "en";
+  toggleLanguage: () => void;
+}
 
-  const toggleLanguage = () => {
-    setLanguage((prev) => (prev === "es" ? "en" : "es"));
-  };
-
+const App: React.FC<AppProps> = ({ language, toggleLanguage }) => {
   const t = (es: string, en: string) => (language === "es" ? es : en);
 
   return (
@@ -55,6 +54,7 @@ const App: React.FC = () => {
                   src="https://www.youtube.com/embed/3UUdLYAMQMw"
                   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                   style={{ width: "100%", height: "100%" }}
+                  title="Prevention Video"
                 ></iframe>
               </div>
             </div>
@@ -67,7 +67,7 @@ const App: React.FC = () => {
               </h2>
               <img
                 src="/cervix.png"
-                alt="Protection Icon"
+                alt="Cervical Icon"
                 className="prevention-icon"
               />
               <p className="section-text">
@@ -83,7 +83,7 @@ const App: React.FC = () => {
               </h2>
               <img
                 src="/breast.png"
-                alt="Protection Icon"
+                alt="Breast Icon"
                 className="prevention-icon"
               />
               <p className="section-text">
@@ -97,7 +97,7 @@ const App: React.FC = () => {
 
           <section className="section-box">
             <h2 className="section-title">
-              {t("Concierto profondos", "Fundrasing Concert")}
+              {t("Concierto profondos", "Fundraising Concert")}
             </h2>
             <div className="prevention-content">
               <div className="prevention-text">
@@ -119,10 +119,12 @@ const App: React.FC = () => {
                   src="https://www.youtube.com/embed/FEjbPzeP2Iw"
                   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                   style={{ width: "100%", height: "100%" }}
+                  title="Fundraising Concert"
                 ></iframe>
               </div>
             </div>
           </section>
+
           <section className="section-box">
             <h2 className="section-title">
               {t(
@@ -140,9 +142,7 @@ const App: React.FC = () => {
               style={{
                 width: "100%",
                 display: "flex",
-                alignItems: "center",
                 justifyContent: "center",
-                flexDirection: "row",
               }}
             >
               <div className="prevention-video">
@@ -150,6 +150,7 @@ const App: React.FC = () => {
                   src="https://www.youtube.com/embed/UoZE4xEyXRY"
                   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                   style={{ width: "100%", height: "100%" }}
+                  title="Quechua Prevention"
                 ></iframe>
               </div>
             </div>

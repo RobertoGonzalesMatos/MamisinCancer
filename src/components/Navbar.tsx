@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
+import { Link } from "react-router-dom";
 import "../styles/Navbar.css";
 import { FaBars, FaTimes, FaChevronDown } from "react-icons/fa";
 
@@ -29,15 +30,12 @@ export const Navbar: React.FC<NavbarProps> = ({ language, toggleLanguage }) => {
         isSidebar ? " sidebar-dropdown-content" : ""
       }`}
     >
-      <a href="#" className="nav-link">
+      <Link to="/voluntariado" className="nav-link" onClick={toggleSidebar}>
         {t("Voluntariado", "Volunteering")}
-      </a>
-      <a href="#" className="nav-link">
-        {t("Eventos", "Events")}
-      </a>
-      <a href="#" className="nav-link">
-        {t("Testimonios", "Testimonials")}
-      </a>
+      </Link>
+      <Link to="/reciente" className="nav-link" onClick={toggleSidebar}>
+        {t("Reciente", "Recent")}
+      </Link>
     </div>
   );
 
@@ -67,16 +65,16 @@ export const Navbar: React.FC<NavbarProps> = ({ language, toggleLanguage }) => {
             </div>
           </label>
 
-          <a href="#" className="nav-link">
+          <Link to="/" className="nav-link">
             {t("Inicio", "Home")}
-          </a>
-          <a href="#" className="nav-link">
+          </Link>
+          <Link to="/historia" className="nav-link">
             {t("Historia", "Our Story")}
-          </a>
+          </Link>
           <div className="dropdown" ref={dropdownRef}>
-            <a href="#" className="nav-link" onClick={toggleDropdown}>
+            <span className="nav-link" onClick={toggleDropdown}>
               {t("Contribuciones", "Contributions")} <FaChevronDown />
-            </a>
+            </span>
             {!sidebarOpen && dropdownOpen && renderDropdownLinks()}
           </div>
           <button className="navbar-donate">{t("Donar", "Donate")}</button>
@@ -91,16 +89,16 @@ export const Navbar: React.FC<NavbarProps> = ({ language, toggleLanguage }) => {
         <div className="close-button" onClick={toggleSidebar}>
           <FaTimes />
         </div>
-        <a href="#" className="nav-link">
+        <Link to="/" className="nav-link" onClick={toggleSidebar}>
           {t("Inicio", "Home")}
-        </a>
-        <a href="#" className="nav-link">
+        </Link>
+        <Link to="/historia" className="nav-link" onClick={toggleSidebar}>
           {t("Historia", "Our Story")}
-        </a>
+        </Link>
         <div className="dropdown">
-          <a href="#" className="nav-link" onClick={toggleDropdown}>
+          <span className="nav-link" onClick={toggleDropdown}>
             {t("Contribuciones", "Contributions")} <FaChevronDown />
-          </a>
+          </span>
           {sidebarOpen && dropdownOpen && renderDropdownLinks(true)}
         </div>
         <label className="english-hidden-toggle">
