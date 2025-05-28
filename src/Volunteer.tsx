@@ -14,6 +14,15 @@ const Volunteer: React.FC<{
 }> = ({ language, toggleLanguage }) => {
   const t = (es: string, en: string) => (language === "es" ? es : en);
 
+  const scrollToSection = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) {
+      const yOffset = -120;
+      const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }
+  };
+
   return (
     <div style={{ overflow: "visible" }}>
       <Navbar language={language} toggleLanguage={toggleLanguage} />
@@ -21,24 +30,71 @@ const Volunteer: React.FC<{
         <aside className="volunteer-sidebar">
           <ul>
             <li>
-              <a href="#vol-2019">{t("2019", "2019")}</a>
+              <a
+                href="#vol-2019"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection("vol-2019");
+                }}
+              >
+                {t("2019", "2019")}
+              </a>
             </li>
             <li>
-              <a href="#vol-2020">2020</a>
+              <a
+                href="#vol-2020"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection("vol-2020");
+                }}
+              >
+                2020
+              </a>
             </li>
             <li>
-              <a href="#vol-2021">2021</a>
+              <a
+                href="#vol-2021"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection("vol-2021");
+                }}
+              >
+                2021
+              </a>
             </li>
             <li>
-              <a href="#vol-2022">2022</a>
+              <a
+                href="#vol-2022"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection("vol-2022");
+                }}
+              >
+                2022
+              </a>
             </li>
             <li>
-              <a href="#vol-2023">2023</a>
+              <a
+                href="#vol-2023"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection("vol-2023");
+                }}
+              >
+                2023
+              </a>
             </li>
             <li>
-              <a href="#vol-2024">2024</a>
+              <a
+                href="#vol-2024"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection("vol-2024");
+                }}
+              >
+                2024
+              </a>
             </li>
-            {/* Add more years */}
           </ul>
         </aside>
 

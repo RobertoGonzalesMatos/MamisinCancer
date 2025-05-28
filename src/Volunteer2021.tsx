@@ -36,7 +36,7 @@ const Volunteer2021: React.FC<Props> = ({ t }) => {
       <div className="timeline-block">
         <h3 className="section-subtitle">IRENE AGAMA CHANCA</h3>
         <img
-          src="/mnt/data/6a488f64-f60f-41ad-add9-021a5d54cbe3.png"
+          src="/mamisincancer5.png"
           alt="Irene Agama"
           className="timeline-image"
         />
@@ -53,7 +53,7 @@ const Volunteer2021: React.FC<Props> = ({ t }) => {
       <div className="timeline-block">
         <h3 className="section-subtitle">CELIA JACINTA AMAU</h3>
         <img
-          src="/mnt/data/9aaec26e-3b07-45fa-a0c5-5b402877cf15.png"
+          src="/mamisincancer5.png"
           alt="Celia Jacinta"
           className="timeline-image"
         />
@@ -64,7 +64,7 @@ const Volunteer2021: React.FC<Props> = ({ t }) => {
           )}
         </p>
         <img
-          src="/mnt/data/71c34eef-1d94-44e9-8a76-b6825eba27df.png"
+          src="/mamisincancer5.png"
           alt="Celia entrega"
           className="timeline-image"
         />
@@ -80,13 +80,13 @@ const Volunteer2021: React.FC<Props> = ({ t }) => {
           )}
         </p>
         <img
-          src="/mnt/data/e2e36951-28a1-4cc1-88c2-858a1ce22484.png"
+          src="/mamisincancer5.png"
           alt="Quechua breast cancer"
           className="timeline-image"
         />
         <AudioPlayer src="/audio/breast-quechua.mp3" />
         <img
-          src="/mnt/data/06cbf6f8-58d9-4b5b-aa70-bddfa8411339.png"
+          src="/mamisincancer5.png"
           alt="Quechua cervical cancer"
           className="timeline-image"
         />

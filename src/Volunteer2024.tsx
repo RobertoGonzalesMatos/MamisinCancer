@@ -19,7 +19,7 @@ const Volunteer2024: React.FC<Year2024Props> = ({ t }) => {
             )}
           </p>
           <img
-            src="/mnt/data/45501e8d-f73c-420e-9c75-4312e321b08a.png"
+            src="/mamisincancer5.png"
             alt="Concierto AVGE 2024"
             className="timeline-image"
           />
@@ -28,17 +28,17 @@ const Volunteer2024: React.FC<Year2024Props> = ({ t }) => {
 
       <div className="timeline-block images-grid">
         <img
-          src="/mnt/data/e6b1176a-ae56-4d5b-9543-714e72c71bb0.png"
+          src="/mamisincancer5.png"
           alt="Evento AVGE - Imagen 1"
           className="timeline-image"
         />
         <img
-          src="/mnt/data/6a488f64-f60f-41ad-add9-021a5d54cbe3.png"
+          src="/mamisincancer5.png"
           alt="Evento AVGE - Imagen 2"
           className="timeline-image"
         />
         <img
-          src="/mnt/data/9aaec26e-3b07-45fa-a0c5-5b402877cf15.png"
+          src="/mamisincancer5.png"
           alt="Evento AVGE - Imagen 3"
           className="timeline-image"
         />
@@ -46,7 +46,7 @@ const Volunteer2024: React.FC<Year2024Props> = ({ t }) => {
 
       <div className="timeline-block">
         <img
-          src="/mnt/data/71c34eef-1d94-44e9-8a76-b6825eba27df.png"
+          src="/mamisincancer5.png"
           alt="Post de Instagram del evento AVGE"
           className="timeline-image"
         />

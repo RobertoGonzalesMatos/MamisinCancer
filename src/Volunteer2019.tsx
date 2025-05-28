@@ -52,7 +52,7 @@ const Volunteer2019: React.FC<Props> = ({ t }) => {
           ></iframe>
         </div>
         <img
-          src="/mnt/data/021b613a-6d57-4531-ba29-755f5eb73997.png"
+          src="/mamisincancer5.png"
           alt="Mami en el concierto"
           className="timeline-image"
         />
@@ -73,12 +73,12 @@ const Volunteer2019: React.FC<Props> = ({ t }) => {
           )}
         </p>
         <img
-          src="/mnt/data/76c1e6fa-35a3-45b4-a47a-d04774ccaf2e.png"
+          src="/mamisincancer5.png"
           alt="Mercado Santa Rosa"
           className="timeline-image"
         />
         <img
-          src="/mnt/data/1b0dc88f-2274-45ba-adee-198a7b3d9975.png"
+          src="/mamisincancer5.png"
           alt="Puerta del mercado"
           className="timeline-image"
         />

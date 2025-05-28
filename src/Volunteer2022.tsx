@@ -21,7 +21,7 @@ const Volunteer2022: React.FC<Props> = ({ t }) => {
           {t("Publicidad ayuda social", "Advertising social aid")}
         </h3>
         <img
-          src="/mnt/data/6a488f64-f60f-41ad-add9-021a5d54cbe3.png"
+          src="/mamisincancer5.png"
           alt="Publicidad ayuda social"
           className="timeline-image"
         />
@@ -38,22 +38,22 @@ const Volunteer2022: React.FC<Props> = ({ t }) => {
           )}
         </p>
         <img
-          src="/mnt/data/9aaec26e-3b07-45fa-a0c5-5b402877cf15.png"
+          src="/mamisincancer5.png"
           alt="Ayuda ALDMI"
           className="timeline-image"
         />
         <img
-          src="/mnt/data/71c34eef-1d94-44e9-8a76-b6825eba27df.png"
+          src="/mamisincancer5.png"
           alt="Compartiendo con pacientes"
           className="timeline-image"
         />
         <img
-          src="/mnt/data/e2e36951-28a1-4cc1-88c2-858a1ce22484.png"
+          src="/mamisincancer5.png"
           alt="Luana con pacientes"
           className="timeline-image"
         />
         <img
-          src="/mnt/data/06cbf6f8-58d9-4b5b-aa70-bddfa8411339.png"
+          src="/mamisincancer5.png"
           alt="Grupo beneficiario"
           className="timeline-image"
         />

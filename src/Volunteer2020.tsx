@@ -14,7 +14,7 @@ const Volunteer2020: React.FC<Props> = ({ t }) => {
         <p className="timeline-text">
           {t(
             "En el 2020 la coyuntura presentada en el mundo debido a la pandemia del Covid 19 no frenó nuestra iniciativa para seguir ayudando, ahora somos varios los alumnos del colegio Casuarinas que se unieron a la causa de ayudar a personas con cáncer, para lo cual utilizamos la tecnología, como redes sociales, etc. para conseguir fondos y poder brindar ayuda dentro de nuestras posibilidades y las necesidades de la Fundación Peruana del Cáncer, institución a la cual estamos apoyando en esta oportunidad, específicamente al albergue Frieda Heller que acoge a personas que vienen del interior del país y no tienen donde hospedarse mientras reciben tratamiento contra el cáncer",
-            "In 2020 the pandemic that halted all of the world’s activities didn’t stop us from helping those in need. Now, as an integrated project of the Casuarinas CAS course more people have joined the cause and helped to make this initiative grow. We used social media in order to promote prevention in the fight against cancer, we raised funds to provide necessary needs to patients from the Peruvian Cancer Foundation (specifically the Frieda Heller Hostel), and finally, we helped another low-income mother with monetary aid for her treatment and screening."
+            "In 2020 the pandemic that halted all of the world’s activities didn’t stop us from helping those in need. Now, as an integrated project of the Casuarinas CAS course more people have joined the cause and helped to make this initiative grow. We used social media in order to promote mamisincancer5 in the fight against cancer, we raised funds to provide necessary needs to patients from the Peruvian Cancer Foundation (specifically the Frieda Heller Hostel), and finally, we helped another low-income mother with monetary aid for her treatment and screening."
           )}
         </p>
       </div>
@@ -26,12 +26,12 @@ const Volunteer2020: React.FC<Props> = ({ t }) => {
         </h3>
         <div className="timeline-image-group">
           <img
-            src="/mnt/data/097e193d-a9de-4c41-82f1-8d3c3415d17a.png"
+            src="/mamisincancer5.png"
             alt="Publicidad 1"
             className="timeline-image"
           />
           <img
-            src="/mnt/data/e9ddfce4-efa4-4c3a-b7ae-fdba0c6b434d.png"
+            src="/mamisincancer5.png"
             alt="Publicidad 2"
             className="timeline-image"
           />
@@ -45,7 +45,7 @@ const Volunteer2020: React.FC<Props> = ({ t }) => {
         </h3>
         <div className="timeline-image-group">
           <img
-            src="/mnt/data/8928a93b-4441-4f6c-83c8-7bac48dcdefe.png"
+            src="/mamisincancer5.png"
             alt="Entrega ayuda"
             className="timeline-image"
           />
@@ -65,12 +65,12 @@ const Volunteer2020: React.FC<Props> = ({ t }) => {
         </p>
         <div className="timeline-image-group">
           <img
-            src="/mnt/data/MpHUHH653b86Z99QCjcrBm"
+            src="/mamisincancer5.png"
             alt="Frente FPC"
             className="timeline-image"
           />
           <img
-            src="/mnt/data/HhCGo6p4oTP6JKmeFCnjhJ"
+            src="/mamisincancer5.png"
             alt="Concurso talentos"
             className="timeline-image"
           />
